@@ -13,7 +13,7 @@ const Profile = () => {
   const checkAutherisedUser = async () => {
     const token = localStorage.getItem("authToken");
     await axios
-      .get("/api/authenticateUser", {
+      .get("https://note-master-8g11.vercel.app/api/authenticateUser", {
         params: {
           param: param.userId,
         },
@@ -28,13 +28,13 @@ const Profile = () => {
 
   const getNotes = async () => {
     await axios
-      .get(`/api/notes/${param.userId}`)
+      .get(`https://note-master-8g11.vercel.app/api/notes/${param.userId}`)
       .then((res) => {
         setNotes(res.data);
       })
       .catch((error) => {
         if (error.response.data.error == "No todos found") {
-          navigate(`/profile/addTodo/${param.userId}`);
+          navigate(`https://note-master-8g11.vercel.app/profile/addTodo/${param.userId}`);
         }
       });
   };
@@ -46,7 +46,7 @@ const Profile = () => {
 
   const changeStatus = async (id) => {
     await axios
-      .get(`/api/note/${id}`)
+      .get(`https://note-master-8g11.vercel.app/api/note/${id}`)
       .then((res) => {
         let newObj = { ...res.data.note, status: !res.data.note.status };
         axios
@@ -69,7 +69,7 @@ const Profile = () => {
   };
 
   const deleteNote = async (id) => {
-    await axios.delete(`/api/delete/note/${id}`).then((res) => {
+    await axios.delete(`https://note-master-8g11.vercel.app/api/delete/note/${id}`).then((res) => {
       toast.error(res.data.message);
     });
     setNotes((prev) => prev.filter((e) => e._id != id));
