@@ -7,7 +7,13 @@ import { noteRouter } from "./Routes/noteRoutes.js";
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+
+const corsOptions = {
+  origin:"https://note-master-kappa.vercel.app",
+  credentials:true
+}
+app.use(cors(corsOptions));
 
 const port = process.env.PORT || 3000;
 dbConnection();
