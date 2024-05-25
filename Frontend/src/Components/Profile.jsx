@@ -34,7 +34,7 @@ const Profile = () => {
       })
       .catch((error) => {
         if (error.response.data.error == "No todos found") {
-          navigate(`https://note-master-8g11.vercel.app/profile/addTodo/${param.userId}`);
+          navigate(`/profile/addTodo/${param.userId}`);
         }
       });
   };
