@@ -32,7 +32,7 @@ const Registration = () => {
 
   const createUser = async () => {
     try {
-      const res = await axios.post("/api/register", user);
+      const res = await axios.post("https://note-master-8g11.vercel.app/api/register", user);
 
       localStorage.setItem("authToken", res.data.token);
 
