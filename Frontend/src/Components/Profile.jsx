@@ -50,7 +50,7 @@ const Profile = () => {
       .then((res) => {
         let newObj = { ...res.data.note, status: !res.data.note.status };
         axios
-          .put(`/api/update/note/${newObj._id}`, newObj)
+          .put(`https://note-master-8g11.vercel.app/api/update/note/${newObj._id}`, newObj)
           .then((res) => {
             if (newObj.status) {
               toast.success("Task is Completed");
