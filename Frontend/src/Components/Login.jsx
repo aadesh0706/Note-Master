@@ -21,6 +21,7 @@ const Login = () => {
 
   const submitData = (e) => {
     e.preventDefault();
+    console.log("Hello");
     loginUser();
     setUser({
       email: "",
@@ -29,6 +30,8 @@ const Login = () => {
   };
 
   const loginUser = async () => {
+    
+    console.log("Hello cuming");
     await axios
       .post("https://note-master-8g11.vercel.app/api/login", user)
       .then((res) => {
