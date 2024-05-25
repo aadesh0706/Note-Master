@@ -30,7 +30,7 @@ const Login = () => {
 
   const loginUser = async () => {
     await axios
-      .post("/api/login", user)
+      .post("https://note-master-8g11.vercel.app/api/login", user)
       .then((res) => {
         localStorage.setItem("authToken", res.data.token);
         toast.success(res.data.message);
