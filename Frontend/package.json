@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "proxy": "https://note-master-8g11.vercel.app"
   "private": true,
   "version": "0.0.0",
   "type": "module",
