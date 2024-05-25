@@ -31,7 +31,7 @@ const CreateNote = () => {
 
   const createNote = async () => {
     try {
-      const res = await axios.post(`/api/createNote/${param.userId}`, note);
+      const res = await axios.post(`https://note-master-8g11.vercel.app/api/createNote/${param.userId}`, note);
       toast.success(res.data.message);
       return navigate(`/profile/${param.userId}`);
     } catch (error) {
@@ -42,7 +42,7 @@ const CreateNote = () => {
   const checkAutherisedUser = async () => {
     const token = localStorage.getItem("authToken");
     await axios
-      .get("/api/authenticateUser", {
+      .get("https://note-master-8g11.vercel.app/api/authenticateUser", {
         params: {
           param: param.userId,
         },
